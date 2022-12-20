@@ -34,7 +34,7 @@ public class Main {
         System.out.println("Общая сумма затрат: " + total);
     }
 
-    public static void printMinSalary() {
+    public static int printMinSalary() {
         int min = Integer.MAX_VALUE;
         for (Employee employee : employees) {
             if (employee.getSalary() < min) {
@@ -42,9 +42,10 @@ public class Main {
             }
         }
         System.out.println("Минимальная зарплата сотрудника: " + min);
+        return min;
     }
 
-    public static void printMaxSalary() {
+    public static int printMaxSalary() {
         int max = Integer.MIN_VALUE;
         for (Employee employee : employees) {
             if (employee.getSalary() > max) {
@@ -52,6 +53,7 @@ public class Main {
             }
         }
         System.out.println("Максимальная зарплата сотрудника: " + max);
+        return max;
     }
 
     public static void printAverageAmount() {
@@ -68,5 +70,4 @@ public class Main {
             System.out.println(employee.getFullName());
         }
     }
-
 }
