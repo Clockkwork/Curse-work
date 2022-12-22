@@ -24,6 +24,7 @@ public class Employee {
         return salary;
     }
 
+
     public int getId() {
         return id;
     }
@@ -38,7 +39,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Работник: " +
+        return " Работник: " +
                 " ID: " + id +
                 " ФИО " + fullName +
                 " Отдел: " + department +

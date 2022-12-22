@@ -18,6 +18,7 @@ public class Main {
         printMaxSalary();
         printAverageAmount();
         printNamesOfEmployees();
+
     }
 
     public static void printEmployees() {
@@ -27,40 +28,62 @@ public class Main {
     }
 
     public static void printTotalSalary() {
+        System.out.println("Общая сумма затрат: " + getTotalSalary());
+    }
+    public static int getTotalSalary(){
         int total = 0;
         for (Employee employee : employees) {
             total += employee.getSalary();
         }
-        System.out.println("Общая сумма затрат: " + total);
+        return total;
     }
 
     public static void printMinSalary() {
+        System.out.println("Сотрудник с минимальной зарплатой: " + getEmployeeMinSalary() );
+    }
+
+    public static Employee getEmployeeMinSalary(){
         int min = Integer.MAX_VALUE;
         for (Employee employee : employees) {
             if (employee.getSalary() < min) {
                 min = employee.getSalary();
             }
         }
-        System.out.println("Минимальная зарплата сотрудника: " + min);
+        Employee employeeMinSalary = null;
+        for (Employee employee : employees) {
+            if (employee.getSalary() == min) {
+                employeeMinSalary = employee;
+                break;
+            }
+        }
+        return employeeMinSalary;
     }
 
+
     public static void printMaxSalary() {
+        System.out.println("Максимальная зарплата сотрудника: " + getEmployeeMaxSalary());
+    }
+
+    public static Employee getEmployeeMaxSalary() {
         int max = Integer.MIN_VALUE;
         for (Employee employee : employees) {
             if (employee.getSalary() > max) {
                 max = employee.getSalary();
             }
         }
-        System.out.println("Максимальная зарплата сотрудника: " + max);
+        Employee employeeMaxSalary = null;
+        for (Employee employee : employees) {
+            if (employee.getSalary() == max) {
+                employeeMaxSalary = employee;
+                break;
+            }
+        }
+        return employeeMaxSalary;
     }
 
+
     public static void printAverageAmount() {
-        int total = 0;
-        for (Employee employee : employees) {
-            total += employee.getSalary();
-        }
-        total = total / employees.length;
-        System.out.println("Средняя зарплата: " + total);
+        System.out.println("Средняя зарплата: " + getTotalSalary()/employees.length);
     }
     public static void printNamesOfEmployees(){
         System.out.println("ФИО сотрудников: ");
@@ -68,5 +91,4 @@ public class Main {
             System.out.println(employee.getFullName());
         }
     }
-
 }
